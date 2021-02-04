@@ -31,11 +31,6 @@ class Product
     private $description;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $quantity;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $price;
@@ -44,6 +39,11 @@ class Product
      * @ORM\Column(type="boolean")
      */
     private $solde = false;
+
+     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
 
     /**
      * @ORM\ManyToMany(targetEntity=Card::class, mappedBy="products")
@@ -54,6 +54,7 @@ class Product
     {
         $this->cards = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -84,19 +85,7 @@ class Product
         return $this;
     }
 
-    public function getQuantity(): ?int
-    {
-        return $this->quantity;
-    }
-
-    public function setQuantity(?int $quantity): self
-    {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    public function getPrice(): ?int
+    public function getPrice(): int
     {
         return $this->price;
     }
@@ -116,6 +105,18 @@ class Product
     public function setSolde(bool $solde): self
     {
         $this->solde = $solde;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

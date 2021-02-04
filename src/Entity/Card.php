@@ -20,23 +20,12 @@ class Card
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $totalPrice;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $totalProducts;
-
-    /**
      * @ORM\Column(type="datetime")
      */
-    private $date;
+    private $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="cards")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
@@ -55,38 +44,14 @@ class Card
         return $this->id;
     }
 
-    public function getTotalPrice(): int
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->totalPrice;
+        return $this->createdAt;
     }
 
-    public function setTotalPrice(int $totalPrice): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->totalPrice = $totalPrice;
-
-        return $this;
-    }
-
-    public function getTotalProducts(): int
-    {
-        return $this->totalProducts;
-    }
-
-    public function setTotalProducts(int $totalProducts): self
-    {
-        $this->totalProducts = $totalProducts;
-
-        return $this;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

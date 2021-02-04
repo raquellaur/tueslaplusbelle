@@ -8,64 +8,33 @@
             <div class="container">
                 <h2 class="m-5 text-center">Les plus vendus</h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="http://via.placeholder.com/60" class="card-img-top" alt="">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Description</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Prix</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="http://via.placeholder.com/60" class="card-img-top" alt="">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Description</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Prix</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="http://via.placeholder.com/60" class="card-img-top" alt="">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Description</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Prix</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    {% for bestseller in bestsellers %}
 
+                        <div class="col">
+                            <div class="card h-100">
+                                <img src="http://via.placeholder.com/60" class="card-img-top" alt="">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ bestseller.description }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ bestseller.price }}</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                </div>
                 <h2 class="m-5 text-center">Les nouveautés</h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for newproduct in newProducts %}
                     <div class="col">
                         <div class="card h-100">
                             <img src="http://via.placeholder.com/60" class="card-img-top" alt="">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Description</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Prix</h6>
+                                <h5 class="card-title">{{ newproduct.description }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ newproduct.price }}</h6>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="http://via.placeholder.com/60" class="card-img-top" alt="">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Description</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Prix</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100">
-                            <img src="http://via.placeholder.com/60" class="card-img-top" alt="">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Description</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Prix</h6>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
 
