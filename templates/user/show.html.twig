@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tu es la plus belle{% endblock %}
+
+{% block body %}
+    <h1 class="mt-5 text-center">Mon compte</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Email</th>
+                <td>{{ app.user.email }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ app.user.name }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ app.user.address }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ app.user.city }}</td>
+            </tr>
+            <tr>
+                <th>Code Postal</th>
+                <td>{{ app.user.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>Sex</th>
+                <td>{{ app.user.sex }}</td>
+            </tr>
+            <tr>
+                <th>Téléphone</th>
+                <td>{{ app.user.phone }}</td>
+            </tr>
+            <tr>
+                <th>Pais</th>
+                <td>{{ app.user.country }}</td>
+            </tr>
+            <tr>
+                <th colspan="2"><a class="btn btn-info" href="{{ path('user_edit', {'id': app.user.id}) }}">edit</a></th>
+
+            </tr>
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tu es la plus belle{% endblock %}
+
+{% block body %}
+    <h1 class="mt-5 text-center">Mon compte</h1>
+
+    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}
