@@ -61,4 +61,21 @@ class CardService
         }
         return $total;
     }
+
+    public function decrement(int $id) {
+        $card = $this->session->get('card', []);
+        if (!array_key_exists($id, $card)) {
+            return;
+        }
+        //if product = 1
+        if($card[$id] === 1) {
+            $this->remove($id);
+            return;
+        }
+        //if product + then 1
+        $card[$id]--;
+
+        $this->session->set('card', $card);
+
+    }
 }
