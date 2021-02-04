@@ -40,6 +40,17 @@ class CardService
 
     }
 
+    public function removeAll()
+    {
+        $panier = $this->session->get('panier', []);
+
+       foreach($panier as $key => $produit) {
+            unset($panier[$key]);
+        }
+        $this->session->set('panier', $panier);
+
+    }
+
     public function getFullCard(): array
     {
         $panier = $this->session->get('panier', []);
@@ -63,7 +74,8 @@ class CardService
     }
 
     public function decrement(int $id) {
-        $card = $this->session->get('card', []);
+
+        $card = $this->session->get('panier', []);
         if (!array_key_exists($id, $card)) {
             return;
         }
@@ -75,7 +87,7 @@ class CardService
         //if product + then 1
         $card[$id]--;
 
-        $this->session->set('card', $card);
+        $this->session->set('panier', $card);
 
     }
 }

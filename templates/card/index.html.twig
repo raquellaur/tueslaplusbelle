@@ -47,6 +47,10 @@
                 </tr>
             </tfood>
         </table>
+        <div class="d-flex justify-content-end">
+            <a href="{{ path('card_register') }}" class="btn btn-primary">Finaliser la commande</a>
+        </div>
+
     {% else %}
         <p>Votre panier est vide!</p>
     {% endif %}

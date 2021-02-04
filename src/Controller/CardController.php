@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\ProductRepository;
 use App\Service\Card\CardService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -63,6 +64,19 @@ class CardController extends AbstractController
         $cardService->decrement($id);
         $this->addFlash("danger","Le produit a été bien décrémenté");
         return $this->redirectToRoute("card_index");
+    }
+
+    /**
+     * @Route("/panier/register", name="card_register")
+     * @param CardService $cardService
+     * @param EntityManagerInterface $em
+     */
+    public function registreCard(CardService $cardService, EntityManagerInterface $em)
+    {
+        //$card = $cardService->getFullCard();
+        $cardService->removeAll();
+        $this->addFlash("success","Merci beaucoup pour votre commande!");
+        return $this->redirectToRoute("home");
     }
 
 }
