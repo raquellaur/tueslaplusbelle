@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Tu es la plus belle {% endblock %}
+
+        {% block body %}
+            <h2 class="m-5 text-center"></h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for product in products %}
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="http://via.placeholder.com/60" class="card-img-top" alt="">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ product.description }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ product.category.name }}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ product.formattedPrice }}</h6>
+                                <a class="btn btn-info" href="{{ path('card_add', {'id': product.id}) }}">Ajouter au panier</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endblock %}

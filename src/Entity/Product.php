@@ -147,4 +147,8 @@ class Product
 
         return $this;
     }
+    public function getFormattedPrice() : string
+    {
+        return $this->price . ' ' . '00' . ' €';
+    }
 }

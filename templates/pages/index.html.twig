@@ -15,7 +15,7 @@
                                 <img src="http://via.placeholder.com/60" class="card-img-top" alt="">
                                 <div class="card-body text-center">
                                     <h5 class="card-title">{{ bestseller.description }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ bestseller.price }}</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ bestseller.price ~ ' ' ~ '00' ~ ' €'}}</h6>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +30,9 @@
                             <img src="http://via.placeholder.com/60" class="card-img-top" alt="">
                             <div class="card-body text-center">
                                 <h5 class="card-title">{{ newproduct.description }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ newproduct.price }}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ newproduct.category.name }}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ newproduct.formattedPrice }}</h6>
+                                <a class="btn btn-info" href="{{ path('card_add', {'id': newproduct.id}) }}">Ajouter au panier</a>
                             </div>
                         </div>
                     </div>

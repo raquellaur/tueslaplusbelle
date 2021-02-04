@@ -22,9 +22,10 @@ class CardRepository extends ServiceEntityRepository
     public function findBestSellers()
     {
         return $this->createQueryBuilder('c')
-            ->Select('p.description, p.price, count(c.id) totalProducts')
+            ->Select('p.description, p.price,  p.id, count(c.id) totalProducts')
             ->join('c.products', 'p')
-            ->groupBy('p.description, p.price')
+            ->groupBy('p.description, p.price, p.id')
+            ->orderBy('totalProducts', 'DESC')
             ->setMaxResults(3)
             ->getQuery()
             ->getResult();

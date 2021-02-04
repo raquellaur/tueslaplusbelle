@@ -20,7 +20,7 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
             $dateCreation = (new DateTime())->modify('- ' . rand(0, 30) . 'days');
             $product = new Product();
             $product->setDescription($faker->text(30));
-            $product->setPrice(rand(16, 100));
+            $product->setPrice(rand(16, 50));
             $product->setSolde($faker->randomElement([true,false]));
             $product->setCreatedAt($dateCreation);
             if ($j == 0) {
